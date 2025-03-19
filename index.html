@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Enrique putero</h1>
-<button onclick="alert("Putero de epoca")">Click</button>
+<h1 id="texto">Enrique putero</h1>
+<button onclick="clickado()">Click</button>
+<script>
+  function clickado(){
+    alert("Putero de epoca")
+}
+  function nomeclickes(){
+    const para = document.getElementById("texto")
+    para.innerText = para.innerText+" Enrique putero";
+    setTimeout(() => {
+      nomeclickes()
+    },100)
+}
+</script>
 </body>
 </html>
 
