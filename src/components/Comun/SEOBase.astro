@@ -1,0 +1,99 @@
+---
+import { SEO } from "astro-seo";
+import defaultOg from "@assets/logotipo.webp";
+const {
+	titulo = "Home",
+	description = "Portfolio Seyronh",
+	canonical = "https://seyronh.github.io/",
+	ogTitle = "Portfolio Seyronh",
+	ogDescription = undefined,
+	autores = ["Seyronh"],
+	section = "Portfolio",
+	tags = [
+		"Desarrollo Web",
+		"Astro",
+		"JavaScript",
+		"CSS",
+		"HTML",
+		"Portfolio",
+		"Desarrollador",
+		"Frontend",
+		"Web",
+	],
+	isArticle = false,
+	noindex = false,
+	nofollow = false,
+	titleDefault = "Portfolio Seyronh",
+	siteName = "Portfolio Seyronh",
+	ogImage = defaultOg.src,
+	ogImageAlt = "Logotipo de Seyronh",
+	twitterSite = "@seyronh",
+	twitterCreator = "@seyronh",
+	twitterCard = "summary_large_image",
+	twitterTitle = undefined,
+	twitterDescription = undefined,
+	twitterImage = undefined,
+	twitterImageAlt = undefined,
+	languageAlternates = [],
+} = Astro.props;
+
+const absOgImage =
+	typeof ogImage === "string" && ogImage.startsWith("http")
+		? ogImage
+		: new URL(ogImage, canonical).toString();
+
+const ogType = isArticle ? "article" : "website";
+
+// Si no se proporciona ogDescription, usar la descripción estándar
+const ogDescriptionFinal = ogDescription ?? description;
+
+const twitter = {
+	card: twitterCard,
+	site: twitterSite,
+	creator: twitterCreator,
+	title: twitterTitle ?? ogTitle ?? titulo,
+	description: twitterDescription ?? ogDescriptionFinal,
+	image: twitterImage ?? absOgImage,
+	imageAlt: twitterImageAlt ?? ogImageAlt,
+};
+---
+
+<SEO
+	title={titulo}
+	titleTemplate="%s | Seyronh"
+	titleDefault={titleDefault}
+	description={description}
+	canonical={canonical}
+	noindex={noindex}
+	nofollow={nofollow}
+	charset="utf-8"
+	languageAlternates={languageAlternates}
+	openGraph={{
+		basic: {
+			title: ogTitle,
+			type: ogType,
+			image: absOgImage,
+			url: canonical,
+		},
+		optional: {
+			description: ogDescriptionFinal,
+			locale: "es_ES",
+			siteName: siteName,
+		},
+		...(isArticle
+			? {
+					article: {
+						publishedTime: new Date().toISOString(),
+						modifiedTime: new Date().toISOString(),
+						authors: autores,
+						section: section,
+						tags: tags,
+					},
+				}
+			: {}),
+		image: {
+			alt: ogImageAlt,
+		},
+	}}
+	twitter={twitter}
+/>
