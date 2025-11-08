@@ -1,8 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 
-import partytown from "@astrojs/partytown";
-
 import sitemap from "@astrojs/sitemap";
 
 import playformCompress from "@playform/compress";
@@ -24,13 +22,12 @@ export default defineConfig({
 	},
 	site: "https://seyronh.github.io",
 	integrations: [
-		partytown(),
 		sitemap(),
 		robotsTxt(),
 		playformInline(),
 		min(),
 		playformCompress({
-			CSS: false,
+			CSS: true,
 			HTML: false,
 			Image: true,
 			JavaScript: false,
