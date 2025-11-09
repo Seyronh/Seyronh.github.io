@@ -30,7 +30,7 @@ export default defineConfig({
 			CSS: true,
 			HTML: false,
 			Image: true,
-			JavaScript: false,
+			JavaScript: true,
 			SVG: true,
 		}),
 	],
