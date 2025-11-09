@@ -1,8 +1,16 @@
 ---
+import Hero from "@components/Inicio/Hero.astro";
 import PaginaBase from "../layouts/paginabase.astro";
+import About from "@components/Inicio/About.astro";
+import Skills from "@components/Inicio/Skills.astro";
+import Projects from "@components/Inicio/Projects.astro";
+import SideNav from "@components/Inicio/SideNav.astro";
 ---
 
 <PaginaBase seo={{ titulo: "Home" }} transition:name="titulo">
-	<h1 transition:name="titulo">Seyronh Portfolio</h1>
-	<a href="/test2" transition:name="enlace">Go to Test</a>
+	<SideNav />
+	<Hero />
+	<About />
+	<Skills />
+	<Projects />
 </PaginaBase>
