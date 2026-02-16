@@ -9,6 +9,7 @@
 	"hero.tagline": "Building modern and scalable web experiences.",
 	"hero.projectsCta": "view_projects",
 	"hero.contactCta": "contact --secure",
+	"hero.photo.text": "OWNER_IDENTITY",
 	"system_capabilities": "SYSTEM_CAPABILITIES",
 	"themeToggle.label": "Theme",
 	"themeToggle.light": "Light",
