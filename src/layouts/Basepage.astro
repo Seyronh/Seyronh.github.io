@@ -4,6 +4,7 @@ import { ClientRouter } from "astro:transitions";
 import SEO from "@components/common/SEO.astro";
 import { getLangFromUrl } from "../i18n/utils";
 import Header from "@components/common/Header.astro";
+import Contact from "@components/common/Contact.astro";
 const { seo } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
@@ -60,5 +61,6 @@ const lang = getLangFromUrl(Astro.url);
 		<main class="text-black dark:text-white">
 			<slot />
 		</main>
+		<Contact />
 	</body>
 </html>

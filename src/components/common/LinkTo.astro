@@ -4,15 +4,18 @@ interface Props {
 	text: string;
 	style: "primary" | "secondary";
 	cta: boolean;
+	outside?: boolean;
 }
 
-const { href, text, style, cta } = Astro.props;
+const { href, text, style, cta, outside } = Astro.props;
 import { getLangFromUrl } from "@i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 ---
 
 <a
-	href={`/${lang}${href}`}
+	href={outside ? href : `/${lang}${href}/`}
+	target={outside ? "_blank" : "_self"}
+	rel={outside ? "noopener noreferrer" : undefined}
 	class={"border-2 border-black  dark:border-white  text-center flex flex-row p-2 w-fit font-mono group hover:scale-95 transition duration-300 " +
 		(style === "primary"
 			? "bg-black dark:bg-white text-white dark:text-black hover:bg-transparent hover:text-black dark:hover:bg-transparent dark:hover:text-white"

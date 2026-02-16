@@ -1,6 +1,6 @@
 ---
-import LanguagePicker from "./LanguagePicker.astro";
-import ThemeToggle from "./ThemeToggle.astro";
+import LanguagePicker from "@components/common/LanguagePicker.astro";
+import ThemeToggle from "@components/common/ThemeToggle.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { ui, defaultLang } from "@i18n/ui";
 const t = useTranslations(getLangFromUrl(Astro.url));

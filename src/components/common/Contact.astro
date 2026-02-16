@@ -1,0 +1,108 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import Email from "@assets/icons/Email.svg";
+import LocationPin from "@assets/icons/LocationPin.svg";
+import PaperPlane from "@assets/icons/PaperPlane.svg";
+import LinkTo from "./LinkTo.astro";
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section
+	class="grid grid-cols-1 xl:grid-cols-2 gap-5 border-2 p-4 border-black dark:border-white w-9/12 m-auto mb-10"
+>
+	<div class="flex flex-col gap-7 w-9/12">
+		<h2 class="text-2xl font-pixel-square text-black dark:text-white">
+			INITIALIZE HANDSHAKE
+		</h2>
+		<p class="text-gray-700 dark:text-gray-300 text-balance">
+			Ready to start a new collaboration? Send a signal. My response latency is
+			usually under 24 hours.
+		</p>
+		<div class="flex flex-col gap-3">
+			<div class="flex items-center gap-2">
+				<Email
+					class="w-8 h-8 bg-black text-white dark:bg-white dark:text-black p-1"
+				/>
+				<a id="correo_contacto" class="text-black dark:text-white" href="#"
+					>Contactar</a
+				>
+			</div>
+			<div class="flex items-center gap-2">
+				<LocationPin
+					class="w-8 h-8 bg-black text-white dark:bg-white dark:text-black p-1"
+				/>
+				<span class="text-black dark:text-white">Málaga, España</span>
+			</div>
+		</div>
+		<div class="flex flex-row gap-3">
+			<LinkTo
+				href="https://github.com/Seyronh"
+				text="GH"
+				style="primary"
+				cta={false}
+				outside={true}
+			/>
+			<LinkTo
+				href="https://www.linkedin.com/in/sergio-bueno-gómez"
+				text="LI"
+				style="primary"
+				cta={false}
+				outside={true}
+			/>
+		</div>
+	</div>
+	<form
+		class="flex flex-col gap-4 w-11/12"
+		action="https://formsubmit.co/buenogomezsergio@gmail.com"
+		method="POST"
+	>
+		<label
+			for="user"
+			class="bg-black text-white dark:bg-white dark:text-black p-1 w-fit font-pixel-square"
+			>USER_IDENTITY</label
+		>
+		<input
+			type="text"
+			name="user"
+			placeholder="Enter your name"
+			required
+			class="placeholder:text-gray-700 dark:placeholder:text-gray-200 border-2 border-black dark:border-white p-2 shadow-[4px_4px_0px_0px_rgba(200,200,200,1)] text-black dark:text-white transition duration-300 focus:scale-105 focus:outline-none"
+		/>
+		<label
+			class="bg-black text-white dark:bg-white dark:text-black p-1 w-fit font-pixel-square"
+			for="email">RETURN_ADDRESS</label
+		>
+		<input
+			type="email"
+			name="email"
+			placeholder="email@domain.com"
+			required
+			class="text-black dark:text-white placeholder:text-gray-700 dark:placeholder:text-gray-200 border-2 border-black dark:border-white p-2 shadow-[4px_4px_0px_0px_rgba(200,200,200,1)] transition duration-300 focus:scale-105 focus:outline-none"
+		/>
+		<label
+			class="bg-black text-white dark:bg-white dark:text-black p-1 w-fit font-pixel-square"
+			for="payload">PAYLOAD</label
+		>
+		<textarea
+			name="payload"
+			placeholder="Write your message here ..."
+			required
+			class="text-black dark:text-white border-2 border-black dark:border-white placeholder:text-gray-700 dark:placeholder:text-gray-200 p-2 shadow-[4px_4px_0px_0px_rgba(200,200,200,1)] transition duration-300 focus:scale-105 focus:outline-none"
+		></textarea>
+		<button
+			type="submit"
+			class="cursor-pointer bg-black text-white dark:bg-white dark:text-black hover:text-black hover:bg-transparent dark:hover:text-white dark:hover:bg-transparent border-2 border-black dark:border-white p-2 font-pixel-square transition duration-300 hover:scale-95 shadow-[4px_4px_0px_0px_rgba(200,200,200,1)] hover:shadow-none w-full"
+			>SEND_TRANSMISSION <PaperPlane class="w-4 h-4 inline-block" />
+		</button>
+	</form>
+</section>
+<script>
+	const usuario = "buenogomezsergio";
+	const dominio = "gmail.com";
+
+	const enlace = document.getElementById("correo_contacto") as HTMLAnchorElement;
+	if (enlace) {
+		enlace.innerHTML = usuario + "@" + dominio;
+		enlace.href = "mailto:" + usuario + "@" + dominio;
+	}
+</script>
