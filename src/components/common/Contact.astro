@@ -62,6 +62,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 			>{t("contact.form.label.name")}</label
 		>
 		<input
+			id="user"
 			type="text"
 			name="user"
 			placeholder={t("contact.form.placeholder.name")}
@@ -73,6 +74,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 			for="email">{t("contact.form.label.email")}</label
 		>
 		<input
+			id="email"
 			type="email"
 			name="email"
 			placeholder={t("contact.form.placeholder.email")}
@@ -84,6 +86,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 			for="payload">{t("contact.form.label.message")}</label
 		>
 		<textarea
+			id="payload"
 			name="payload"
 			placeholder={t("contact.form.placeholder.message")}
 			required
