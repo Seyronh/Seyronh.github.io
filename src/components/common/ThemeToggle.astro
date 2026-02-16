@@ -1,0 +1,62 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<button
+	id="theme-toggle"
+	class="cursor-pointer font-mono text-black dark:text-white border-black dark:border-white border-2 max-w-fit p-1 shadow-[4px_4px_0px_0px_rgba(200,200,200,1)] transition duration-300 hover:shadow-none hover:scale-95 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black mb-5"
+	aria-label="Toggle theme"
+	data-label-dark={t("themeToggle.dark")}
+	data-label-light={t("themeToggle.light")}
+>
+	{t("themeToggle.label")}: <span id="theme-status"></span>
+</button>
+
+<script is:inline>
+	function updateThemeDisplay() {
+		const toggle = document.getElementById("theme-toggle");
+		const themeStatus = document.getElementById("theme-status");
+
+		if (!toggle || !themeStatus) return;
+
+		const currentTheme = localStorage.getItem("theme") || "light";
+		const labelDark = toggle.getAttribute("data-label-dark") || "Oscuro";
+		const labelLight = toggle.getAttribute("data-label-light") || "Claro";
+
+		themeStatus.textContent = currentTheme === "dark" ? labelDark : labelLight;
+	}
+
+	function setupThemeToggle() {
+		const toggle = document.getElementById("theme-toggle");
+		if (!toggle) return;
+
+		// Remove old listeners by cloning
+		const newToggle = toggle.cloneNode(true);
+		toggle.parentNode.replaceChild(newToggle, toggle);
+
+		// Add click handler
+		newToggle.addEventListener("click", () => {
+			const html = document.documentElement;
+			const newTheme = localStorage.getItem("theme") === "dark" ? "light" : "dark";
+			localStorage.setItem("theme", newTheme);
+
+			// Apply class and update display
+			if (newTheme === "dark") {
+				html.classList.add("dark");
+			} else {
+				html.classList.remove("dark");
+			}
+			updateThemeDisplay();
+		});
+
+		// Update display with current theme
+		updateThemeDisplay();
+	}
+
+	// Initial setup
+	setupThemeToggle();
+
+	// Reattach after navigation
+	document.addEventListener("astro:after-swap", setupThemeToggle);
+</script>

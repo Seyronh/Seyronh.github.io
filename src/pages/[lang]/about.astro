@@ -1,0 +1,36 @@
+---
+import Basepage from "@layouts/Basepage.astro";
+const { lang } = Astro.params;
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import Hero from "@components/Pages/home/Photo.astro";
+import Terminal_Url from "@components/common/Terminal_Url.astro";
+import Introduction from "@components/Pages/home/Introduction.astro";
+import TreeAscii from "@components/Pages/home/TreeAscii.astro";
+import SystemComponent from "@components/Pages/home/System_capabilities/SystemComponent.astro";
+const t = useTranslations(lang as ReturnType<typeof getLangFromUrl>);
+export async function getStaticPaths() {
+	return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+---
+
+<Basepage
+	seo={{
+		title: t("seo.about.title"),
+		description: t("seo.about.description"),
+		canonical: "https://seyronh.is-a.dev/",
+	}}
+>
+	<div class="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-10">
+		<div class="hidden xl:flex xl:col-span-1 xl:order-3">
+			<TreeAscii />
+		</div>
+		<div class="xl:col-span-1 xl:order-2">
+			<Hero />
+		</div>
+		<div class="xl:col-span-1 xl:order-1">
+			<Terminal_Url text={t("seo.home.title")} />
+			<Introduction />
+		</div>
+	</div>
+	<SystemComponent />
+</Basepage>

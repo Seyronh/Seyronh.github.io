@@ -1,0 +1,35 @@
+---
+import LinkTo from "@components/common/LinkTo.astro";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section class="flex flex-col gap-4">
+	<h1 class="text-3xl xl:text-4xl">
+		{t("hero.title")}
+		<strong class="bg-black text-white dark:bg-white dark:text-black p-0.1"
+			>Sergio Bueno Gómez</strong
+		>
+	</h1>
+	<h2
+		class="border-l-4 border-black dark:border-white pl-4 text-2xl text-balance"
+	>
+		{t("hero.subtitle")}
+	</h2>
+	<div class="flex flex-col gap-2 border-2 border-black dark:border-white p-2">
+		<p>$ cat intro.txt</p>
+		<p class="opacity-90 italic">"{t("hero.tagline")}"</p>
+	</div>
+	<LinkTo
+		href="/projects"
+		text={"./" + t("hero.projectsCta") + ".sh"}
+		style="primary"
+		cta={true}
+	/>
+	<LinkTo
+		href="/contact"
+		text={t("hero.contactCta")}
+		style="secondary"
+		cta={false}
+	/>
+</section>

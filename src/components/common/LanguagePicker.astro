@@ -1,0 +1,116 @@
+---
+interface Props {
+	currentLanguage: string;
+}
+const { currentLanguage } = Astro.props;
+---
+
+<button
+	id="language-toggle"
+	class="cursor-pointer font-mono text-black dark:text-white border-black dark:border-white border-2 max-w-fit p-1 shadow-[4px_4px_0px_0px_rgba(200,200,200,1)] mb-5 transition duration-300 hover:shadow-none hover:scale-95 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black disabled:opacity-50 disabled:cursor-not-allowed"
+	aria-label="Toggle language"
+	data-label-en="EN"
+	data-label-es="ES"
+	data-current={currentLanguage}
+>
+	Lang: <span id="language-status">EN</span>
+</button>
+
+<script>
+	import { navigate } from "astro:transitions/client";
+
+	let isNavigating = false;
+
+	function updateLanguageDisplay() {
+		const toggle = document.getElementById(
+			"language-toggle"
+		) as HTMLButtonElement;
+		const languageStatus = document.getElementById("language-status");
+
+		if (!toggle || !languageStatus) return;
+
+		const current = toggle.getAttribute("data-current") || "en";
+		const labelEn = toggle.getAttribute("data-label-en") || "EN";
+		const labelEs = toggle.getAttribute("data-label-es") || "ES";
+
+		languageStatus.textContent = current === "es" ? labelEs : labelEn;
+
+		if (isNavigating) {
+			toggle.disabled = false;
+			isNavigating = false;
+		}
+	}
+
+	function setLoadingState(isLoading: boolean) {
+		const toggle = document.getElementById(
+			"language-toggle"
+		) as HTMLButtonElement;
+		const languageStatus = document.getElementById("language-status");
+
+		if (!toggle || !languageStatus) return;
+
+		if (isLoading) {
+			languageStatus.textContent = "Loading";
+		} else {
+			updateLanguageDisplay();
+		}
+	}
+
+	function setupLanguageToggle() {
+		const toggle = document.getElementById(
+			"language-toggle"
+		) as HTMLButtonElement;
+		if (!toggle) return;
+
+		// Remove old listeners by cloning
+		const newToggle = toggle.cloneNode(true) as HTMLButtonElement;
+		toggle.parentNode!.replaceChild(newToggle, toggle);
+
+		newToggle.addEventListener("click", async (e) => {
+			e.preventDefault();
+
+			if (isNavigating || newToggle.disabled) return;
+
+			isNavigating = true;
+			newToggle.disabled = true;
+			setLoadingState(true);
+
+			const current = newToggle.getAttribute("data-current") || "en";
+			const selectedLang = current === "es" ? "en" : "es";
+			const path = window.location.pathname;
+			let newPath = path;
+
+			if (path.startsWith("/es/")) {
+				newPath = path.replace("/es/", "/" + selectedLang + "/");
+			} else if (path.startsWith("/en/")) {
+				newPath = path.replace("/en/", "/" + selectedLang + "/");
+			} else {
+				newPath = "/" + selectedLang + path;
+			}
+
+			try {
+				await navigate(newPath);
+			} catch (error) {
+				console.error("Navigation error:", error);
+				isNavigating = false;
+				newToggle.disabled = false;
+				setLoadingState(false);
+			}
+		});
+
+		updateLanguageDisplay();
+	}
+
+	setupLanguageToggle();
+	document.addEventListener("astro:after-swap", setupLanguageToggle);
+	document.addEventListener("astro:page-load", () => {
+		isNavigating = false;
+		const toggle = document.getElementById(
+			"language-toggle"
+		) as HTMLButtonElement;
+		if (toggle) {
+			toggle.disabled = false;
+			setLoadingState(false);
+		}
+	});
+</script>

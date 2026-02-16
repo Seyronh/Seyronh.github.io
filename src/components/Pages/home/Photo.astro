@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import Avatar from "@assets/avatar.webp";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section
+	class="m-auto mt-5 max-w-1/2 flex flex-col items-center gap-4 text-center mb-5"
+>
+	<Image
+		src={Avatar}
+		alt={t("hero.imageAlt")}
+		loading="eager"
+		class="rounded-full aspect-square object-cover w-full max-w-xl border-4 border-black dark:border-white border-dashed"
+	/>
+	<h4
+		transition:name="name"
+		class="mt-4 border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black px-3 py-1 text-xs shadow-[4px_4px_0px_0px_rgba(200,200,200,1)]"
+	>
+		OWNER_IDENTITY: [Sergio_Bueno_Gómez]
+	</h4>
+</section>

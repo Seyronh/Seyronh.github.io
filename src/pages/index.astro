@@ -1,24 +1,15 @@
 ---
-import Hero from "@components/Inicio/Hero.astro";
-import PaginaBase from "../layouts/paginabase.astro";
-import About from "@components/Inicio/About.astro";
-import Skills from "@components/Inicio/Skills.astro";
-import Projects from "@components/Inicio/Projects.astro";
-import SideNav from "@components/Inicio/SideNav.astro";
+import { useTranslations } from "@i18n/utils";
+import PaginaBase from "@layouts/Basepage.astro";
+const t = useTranslations("es");
 ---
 
 <PaginaBase
 	seo={{
-		titulo: "Inicio",
-		description:
-			"Portfolio de Sergio Bueno Gómez - Ingeniero de Software en Málaga, España. Explora mis proyectos, habilidades y experiencia en desarrollo web con JavaScript, Node.js, Astro y más.",
-		canonical: "https://seyronh.github.io/",
+		title: t("seo.home.title"),
+		description: t("seo.home.description"),
+		canonical: "https://seyronh.is-a.dev/",
 	}}
-	transition:name="titulo"
 >
-	<SideNav />
-	<Hero />
-	<About />
-	<Skills />
-	<Projects />
+	<meta http-equiv="refresh" content="0;url=/es/" />
 </PaginaBase>

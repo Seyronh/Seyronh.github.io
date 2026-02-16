@@ -1,13 +1,15 @@
 ---
-import { SEO } from "astro-seo";
+import { SEO as SEOComponent } from "astro-seo";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+const t = useTranslations(getLangFromUrl(Astro.url));
 
 const {
-	titulo = "Inicio",
-	description = "Portfolio de Sergio Bueno Gómez (Seyronh) - Ingeniero de Software especializado en desarrollo web moderno. Descubre mis proyectos y experiencia en JavaScript, Node.js, Astro y tecnologías web.",
-	canonical = "https://seyronh.github.io/",
-	ogTitle = "Sergio Bueno Gómez - Ingeniero de Software | Portfolio",
+	title = t("seo.home.title"),
+	description = t("seo.home.description"),
+	canonical = "https://seyronh.is-a.dev/",
+	ogTitle = t("seo.home.ogTitle"),
 	ogDescription = undefined,
-	autores = ["Sergio Bueno Gómez", "Seyronh"],
+	autores = ["Sergio Bueno Gómez"],
 	section = "Portfolio",
 	tags = [
 		"Sergio Bueno Gómez",
@@ -25,14 +27,16 @@ const {
 		"Desarrollador Full Stack",
 		"Málaga",
 		"España",
+		"Software Engineer",
+		"Web Developer",
 	],
 	isArticle = false,
 	noindex = false,
 	nofollow = false,
 	titleDefault = "Sergio Bueno Gómez - Portfolio",
-	siteName = "Sergio Bueno Gómez - Ingeniero de Software",
+	siteName = "Sergio Bueno Gómez - Portfolio",
 	ogImage = "/avatar.webp",
-	ogImageAlt = "Logotipo de Sergio Bueno Gómez (Seyronh) - Ingeniero de Software",
+	ogImageAlt = t("seo.home.ogImageAlt"),
 	twitterSite = "@Seyronh",
 	twitterCreator = "@Seyronh",
 	twitterCard = "summary_large_image",
@@ -57,16 +61,16 @@ const twitter = {
 	card: twitterCard,
 	site: twitterSite,
 	creator: twitterCreator,
-	title: twitterTitle ?? ogTitle ?? titulo,
+	title: twitterTitle ?? ogTitle ?? title,
 	description: twitterDescription ?? ogDescriptionFinal,
 	image: twitterImage ?? absOgImage,
 	imageAlt: twitterImageAlt ?? ogImageAlt,
 };
 ---
 
-<SEO
-	title={titulo}
-	titleTemplate="%s | Seyronh"
+<SEOComponent
+	title={title}
+	titleTemplate="%s | Sergio Bueno Gómez"
 	titleDefault={titleDefault}
 	description={description}
 	canonical={canonical}

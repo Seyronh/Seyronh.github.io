@@ -1,0 +1,27 @@
+---
+interface Props {
+	href: string;
+	text: string;
+	style: "primary" | "secondary";
+	cta: boolean;
+}
+
+const { href, text, style, cta } = Astro.props;
+import { getLangFromUrl } from "@i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+---
+
+<a
+	href={`/${lang}${href}`}
+	class={"border-2 border-black  dark:border-white  text-center flex flex-row p-2 w-fit font-mono group hover:scale-95 transition duration-300 " +
+		(style === "primary"
+			? "bg-black dark:bg-white text-white dark:text-black hover:bg-transparent hover:text-black dark:hover:bg-transparent dark:hover:text-white"
+			: "bg-transparent text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black")}
+>
+	{text}
+	{
+		cta && (
+			<span class="ml-2 inline-block bg-white dark:bg-black group-hover:bg-black group-hover:dark:bg-white w-1.5 h-5 animate-cursor-blink" />
+		)
+	}
+</a>
