@@ -1,0 +1,23 @@
+---
+import Basepage from "@layouts/Basepage.astro";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+---
+
+<Basepage
+	seo={{
+		title: "Not found",
+		description: "The page you are looking for does not exist.",
+		canonical: "https://seyronh.is-a.dev/",
+	}}
+>
+	<div class="flex flex-col items-center justify-center gap-0">
+		<h1
+			class="text-[45vw] xl:text-[25vw] font-pixel-line leading-50 md:leading-100 xl:leading-130"
+		>
+			404
+		</h1>
+		<p class="text-center text-gray-700 dark:text-gray-300 text-lg w-9/12">
+			{useTranslations(getLangFromUrl(Astro.url))("not_found")}
+		</p>
+	</div>
+</Basepage>
