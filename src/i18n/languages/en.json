@@ -1,12 +1,12 @@
 {
 	"seo.home.title": "Home",
-	"seo.home.description": "Portfolio of Sergio Bueno Gómez - Software Engineer in Málaga, Spain. Explore my projects, skills and experience in web development with JavaScript, Node.js, Astro and more.",
+	"seo.home.description": "Portfolio of Sergio Bueno Gómez - Software Engineer in Malaga, Spain. Explore my projects, skills and fullstack experience with JavaScript, Node.js, Astro and more.",
 	"seo.home.ogTitle": "Sergio Bueno Gómez - Software Engineer | Portfolio",
 	"seo.home.ogImageAlt": "Sergio Bueno Gómez Logo - Software Engineer",
 	"hero.imageAlt": "Sergio Bueno Gómez Avatar",
 	"hero.title": "Hi, I'm ",
-	"hero.subtitle": "Fullstack Developer & Tech Enthusiast",
-	"hero.tagline": "Building modern and scalable web experiences.",
+	"hero.subtitle": "Software Engineer & Tech Enthusiast",
+	"hero.tagline": "Building scalable fullstack solutions.",
 	"hero.projectsCta": "view_projects",
 	"hero.contactCta": "contact --secure",
 	"hero.photo.text": "OWNER_IDENTITY",
@@ -25,7 +25,7 @@
 	"contact.form.submit": "SEND_TRANSMISSION",
 	"seo.projects.title": "Projects",
 	"spain": "Spain",
-	"seo.projects.description": "Explore Sergio Bueno Gómez's projects, a software engineer specialized in web development. Discover his contributions to open source projects, web applications and more.",
+	"seo.projects.description": "Explore Sergio Bueno Gómez's projects, a fullstack software engineer. Discover his contributions to open source projects, digital products and more.",
 	"seo.about.title": "About Me",
-	"seo.about.description": "Meet Sergio Bueno Gómez, a software engineer passionate about web development. Discover his experience, skills and professional journey in the world of technology."
+	"seo.about.description": "Meet Sergio Bueno Gómez, a software engineer passionate about building fullstack solutions. Discover his experience, skills and professional journey in the world of technology."
 }

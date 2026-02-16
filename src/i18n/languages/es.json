@@ -1,12 +1,12 @@
 {
 	"seo.home.title": "Inicio",
-	"seo.home.description": "Portfolio de Sergio Bueno Gómez - Ingeniero de Software en Málaga, España. Explora mis proyectos, habilidades y experiencia en desarrollo web con JavaScript, Node.js, Astro y más.",
+	"seo.home.description": "Portfolio de Sergio Bueno Gómez - Ingeniero de Software en Málaga, España. Explora mis proyectos, habilidades y experiencia fullstack con JavaScript, Node.js, Astro y mas.",
 	"seo.home.ogTitle": "Sergio Bueno Gómez - Ingeniero de Software | Portfolio",
 	"seo.home.ogImageAlt": "Logotipo de Sergio Bueno Gómez - Ingeniero de Software",
 	"hero.imageAlt": "Avatar de Sergio Bueno Gómez",
 	"hero.title": "Hola, soy ",
-	"hero.subtitle": "Fullstack Developer & Tech Enthusiast",
-	"hero.tagline": "Construyendo experiencias web modernas y escalables.",
+	"hero.subtitle": "Ingeniero de Software & Entusiasta de la Tecnología",
+	"hero.tagline": "Construyendo soluciones escalables fullstack.",
 	"hero.projectsCta": "ver_projectos",
 	"hero.contactCta": "contactar --secure",
 	"hero.photo.text": "IDENTIDAD_DEL_DUEÑO",
@@ -25,7 +25,7 @@
 	"contact.form.submit": "ENVIAR_TRANSMISIÓN",
 	"seo.projects.title": "Proyectos",
 	"spain": "España",
-	"seo.projects.description": "Explora los proyectos de Sergio Bueno Gómez, un ingeniero de software especializado en desarrollo web. Descubre sus contribuciones a proyectos de código abierto, aplicaciones web y más.",
+	"seo.projects.description": "Explora los proyectos de Sergio Bueno Gómez, un ingeniero de software fullstack. Descubre sus contribuciones a proyectos de codigo abierto, productos digitales y mas.",
 	"seo.about.title": "Sobre mí",
-	"seo.about.description": "Conoce a Sergio Bueno Gómez, un ingeniero de software apasionado por el desarrollo web. Descubre su experiencia, habilidades y trayectoria profesional en el mundo de la tecnología."
+	"seo.about.description": "Conoce a Sergio Bueno Gómez, un ingeniero de software apasionado por crear soluciones fullstack. Descubre su experiencia, habilidades y trayectoria profesional en el mundo de la tecnologia."
 }
