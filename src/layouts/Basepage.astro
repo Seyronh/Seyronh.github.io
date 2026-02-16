@@ -28,6 +28,12 @@ const lang = getLangFromUrl(Astro.url);
 			}
 			restoreTheme();
 			document.addEventListener("astro:after-swap", restoreTheme);
+			document.addEventListener("astro:before-swap", (ev) => {
+				// Pass the current theme to the new document before swap
+				if (document.documentElement.classList.contains("dark")) {
+					ev.newDocument.documentElement.classList.add("dark");
+				}
+			});
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
