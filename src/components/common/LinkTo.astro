@@ -13,7 +13,7 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <a
-	href={outside ? href : `/${lang}${href}/`}
+	href={outside ? href : `/${lang}${href}`}
 	target={outside ? "_blank" : "_self"}
 	rel={outside ? "noopener noreferrer" : undefined}
 	class={"border-2 border-black  dark:border-white  text-center flex flex-row p-2 w-fit font-mono group hover:scale-95 transition duration-300 " +

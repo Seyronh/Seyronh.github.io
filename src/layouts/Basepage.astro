@@ -10,7 +10,7 @@ const { seo } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<html lang={lang}>
+<html lang={lang} class="scroll-smooth">
 	<head>
 		<script is:inline>
 			function restoreTheme() {
@@ -55,7 +55,7 @@ const lang = getLangFromUrl(Astro.url);
 		<ClientRouter />
 	</head>
 	<body
-		class="bg-white dark:bg-black selection:bg-black selection:text-white selection:dark:bg-white selection:dark:text-black w-11/12 m-auto transition duration-300"
+		class="bg-white dark:bg-black selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black w-11/12 m-auto transition duration-300"
 	>
 		<Header />
 		<main class="text-black dark:text-white">
