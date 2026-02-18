@@ -3,6 +3,8 @@ import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import Email from "@assets/icons/Contact/Email.svg";
 import LocationPin from "@assets/icons/Contact/LocationPin.svg";
 import PaperPlane from "@assets/icons/Contact/PaperPlane.svg";
+import Github from "@assets/icons/Contact/Github.svg";
+import LinkedIn from "@assets/icons/Contact/LinkedIn.svg";
 import LinkTo from "./LinkTo.astro";
 const t = useTranslations(getLangFromUrl(Astro.url));
 ---
@@ -22,7 +24,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 		<div class="flex flex-col gap-3">
 			<div class="flex items-center gap-2">
 				<Email
-					class="w-8 h-8 bg-black text-white dark:bg-white dark:text-black p-1"
+					class="min-w-8 min-h-8 w-8 h-8 bg-black text-white dark:bg-white dark:text-black p-1"
 				/>
 				<a id="correo_contacto" class="text-black dark:text-white" href="#"
 					>Contact</a
@@ -42,6 +44,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 				style="primary"
 				cta={false}
 				outside={true}
+				Icon={Github}
 			/>
 			<LinkTo
 				href="https://www.linkedin.com/in/sergio-bueno-gómez"
@@ -49,6 +52,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 				style="primary"
 				cta={false}
 				outside={true}
+				Icon={LinkedIn}
 			/>
 		</div>
 	</div>
