@@ -13,12 +13,14 @@
 		"@astrojs/sitemap": "^3.6.0",
 		"@tailwindcss/vite": "^4.1.18",
 		"astro": "^5.15.6",
+		"astro-compressor": "^1.2.0",
 		"astro-robots-txt": "^1.0.0",
 		"astro-seo": "^0.8.4",
 		"geist": "^1.7.0",
 		"tailwindcss": "^4.1.18"
 	},
 	"devDependencies": {
+		"@nuasite/llm-enhancements": "^0.9.3",
 		"prettier": "^3.6.2",
 		"prettier-plugin-astro": "^0.14.1"
 	}
