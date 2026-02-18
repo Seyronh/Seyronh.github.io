@@ -3,6 +3,8 @@ interface Props {
 	currentLanguage: string;
 }
 const { currentLanguage } = Astro.props;
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
 <button
@@ -13,7 +15,7 @@ const { currentLanguage } = Astro.props;
 	data-label-es="ES"
 	data-current={currentLanguage}
 >
-	Lang: <span id="language-status">EN</span>
+	{t("language")}: <span id="language-status">EN</span>
 </button>
 
 <script>
