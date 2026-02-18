@@ -1,0 +1,49 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { Image } from "astro:assets";
+const t = useTranslations(getLangFromUrl(Astro.url));
+import EnlaceExterno from "@assets/icons/EnlaceExterno.svg";
+import Credymas from "@assets/projects/Credymas.png";
+
+import LsProjectCardTag from "./LsProjectCardTag.astro";
+import LinkTo from "@components/common/LinkTo.astro";
+---
+
+<div
+	class="flex flex-col xl:flex-row h-96 border-2 border-black dark:border-white group"
+>
+	<figure
+		class="basis-2/5 bg-white dark:bg-black relative border-r-2 border-black dark:border-white"
+	>
+		<Image
+			src={Credymas}
+			alt="Credymas"
+			class="brightness-50 grayscale-75 w-full h-full object-cover group-hover:brightness-100 group-hover:grayscale-0 transition duration-300 hover:scale-110 hover:border-2 hover:border-black dark:hover:border-white hover:object-contain hover:bg-white dark:hover:bg-black"
+		/>
+	</figure>
+	<div class="basis-3/5 m-auto gap-4 flex flex-col px-20">
+		<h2 class="text-2xl font-pixel-square">CREDYMÁS</h2>
+		<div
+			class="text-gray-700 dark:text-gray-300 text-sm border-l-2 border-gray-700 dark:border-gray-300 pl-4 font-pixel-square hyphens-auto flex flex-col gap-3"
+		>
+			<p>{t("projects.credymas.product_description")}</p>
+			<p>{t("projects.credymas.tech_reasons")}</p>
+		</div>
+		<div class="flex flex-row gap-2">
+			<LsProjectCardTag>Astro</LsProjectCardTag>
+			<LsProjectCardTag>Html</LsProjectCardTag>
+			<LsProjectCardTag>Css</LsProjectCardTag>
+			<LsProjectCardTag>JavaScript</LsProjectCardTag>
+		</div>
+		<div class="flex flex-row gap-2">
+			<LinkTo
+				href="https://credymas.es"
+				outside={true}
+				style="secondary"
+				cta={false}
+			>
+				<EnlaceExterno class="w-4 h-4 mr-2 m-auto" />[{t("projects.view_live")}]
+			</LinkTo>
+		</div>
+	</div>
+</div>

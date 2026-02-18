@@ -29,5 +29,11 @@
 	"language": "Idioma",
 	"seo.projects.description": "Explora los proyectos de Sergio Bueno Gómez, un ingeniero de software fullstack. Descubre sus contribuciones a proyectos de codigo abierto, productos digitales y mas.",
 	"seo.about.title": "Sobre mí",
-	"seo.about.description": "Conoce a Sergio Bueno Gómez, un ingeniero de software apasionado por crear soluciones fullstack. Descubre su experiencia, habilidades y trayectoria profesional en el mundo de la tecnologia."
+	"seo.about.description": "Conoce a Sergio Bueno Gómez, un ingeniero de software apasionado por crear soluciones fullstack. Descubre su experiencia, habilidades y trayectoria profesional en el mundo de la tecnologia.",
+	"LsProjects.total_entries": "TOTAL_ENTRIES",
+	"LsProjects.title": "ls -R /projects",
+	"projects.view_live": "ver_en_vivo",
+	"projects.credymas.title": "CREDYMÁS",
+	"projects.credymas.product_description": "Empresa de Intermediación Hipotecaria y Servicios Financieros en Málaga. Especializada en tramitación y gestión de préstamos hipotecarios. Te ayudamos a conseguir la mejor hipoteca del mercado sin complicaciones ni sorpresas, actuando como tu asesor hipotecario o bróker de confianza.",
+	"projects.credymas.tech_reasons": "Es mi primer proyecto serio donde apliqué tecnologías modernas. Elegí Astro para construir un sitio web estático altamente optimizado con excelente SEO. Los posts se sincronizan automáticamente cada noche mediante un workflow de GitHub Actions que detecta nuevos posts y dispara un build, combinando lo mejor de ambos mundos: rendimiento estático y contenido dinámico."
 }

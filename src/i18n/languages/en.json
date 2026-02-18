@@ -29,5 +29,11 @@
 	"language": "Language",
 	"seo.projects.description": "Explore Sergio Bueno Gómez's projects, a fullstack software engineer. Discover his contributions to open source projects, digital products and more.",
 	"seo.about.title": "About Me",
-	"seo.about.description": "Meet Sergio Bueno Gómez, a software engineer passionate about building fullstack solutions. Discover his experience, skills and professional journey in the world of technology."
+	"seo.about.description": "Meet Sergio Bueno Gómez, a software engineer passionate about building fullstack solutions. Discover his experience, skills and professional journey in the world of technology.",
+	"LsProjects.total_entries": "TOTAL_ENTRIES",
+	"LsProjects.title": "ls -R /projects",
+	"projects.view_live": "view_live",
+	"projects.credymas.title": "CREDYMÁS",
+	"projects.credymas.product_description": "Mortgage brokerage and financial services company in Málaga. Specialized in the processing and management of mortgage loans. We help you get the best mortgage on the market without complications or surprises, acting as your trusted mortgage advisor or broker.",
+	"projects.credymas.tech_reasons": "It's my first serious project where I applied modern technologies. I chose Astro to build a highly optimized static website with excellent SEO. Posts are automatically synced every night through a GitHub Actions workflow that detects new posts and triggers a build, combining the best of both worlds: static performance and dynamic content."
 }

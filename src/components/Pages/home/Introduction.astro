@@ -20,16 +20,10 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 		<p>$ cat intro.txt</p>
 		<p class="opacity-90 italic">"{t("hero.tagline")}"</p>
 	</div>
-	<LinkTo
-		href="/projects/"
-		text={"./" + t("hero.projectsCta") + ".sh"}
-		style="primary"
-		cta={true}
-	/>
-	<LinkTo
-		href="/#contact-section"
-		text={t("hero.contactCta")}
-		style="secondary"
-		cta={false}
-	/>
+	<LinkTo href="/projects/" style="primary" cta={true}>
+		{"./" + t("hero.projectsCta") + ".sh"}
+	</LinkTo>
+	<LinkTo href="/#contact-section" style="secondary" cta={false}
+		>{t("hero.contactCta")}</LinkTo
+	>
 </section>

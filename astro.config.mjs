@@ -14,13 +14,7 @@ export default defineConfig({
 	prefetch: {
 		prefetchAll: true,
 	},
-
-	image: {
-		responsiveStyles: true,
-		layout: "full-width",
-	},
-
-	site: "https://seyronh.github.io",
+	site: "https://seyronh.is-a.dev",
 	integrations: [sitemap(), robotsTxt(), compressor()],
 
 	vite: {

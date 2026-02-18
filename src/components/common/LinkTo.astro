@@ -1,14 +1,13 @@
 ---
 interface Props {
 	href: string;
-	text: string;
 	style: "primary" | "secondary";
 	cta: boolean;
 	outside?: boolean;
 	Icon?: any;
 }
 
-const { href, text, style, cta, outside, Icon } = Astro.props;
+const { href, style, cta, outside, Icon } = Astro.props;
 import { getLangFromUrl } from "@i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 ---
@@ -33,7 +32,7 @@ const lang = getLangFromUrl(Astro.url);
 			/>
 		)
 	}
-	{text}
+	<slot />
 	{
 		cta && (
 			<span class="ml-2 inline-block bg-white dark:bg-black group-hover:bg-black group-hover:dark:bg-white w-1.5 h-5 animate-cursor-blink" />

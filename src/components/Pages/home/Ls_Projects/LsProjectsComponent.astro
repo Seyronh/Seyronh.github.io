@@ -1,0 +1,20 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import LsProjectCard from "./LsProjectCard.astro";
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section class="mb-10">
+	<div class="flex justify-between">
+		<h2 class="text-2xl text-white dark:text-black font-pixel-square mb-5">
+			<strong class="bg-black text-white dark:bg-white dark:text-black pl-1 pr-1"
+				>$</strong
+			>
+			<span class="bg-black dark:bg-white">{t("LsProjects.title")}</span>
+		</h2>
+		<p class="text-gray-500 text-sm">{t("LsProjects.total_entries")}: 02</p>
+	</div>
+	<div class="flex flex-col gap-10">
+		<LsProjectCard />
+	</div>
+</section>

@@ -7,6 +7,7 @@ import Terminal_Url from "@components/common/Terminal_Url.astro";
 import Introduction from "@components/Pages/home/Introduction.astro";
 import TreeAscii from "@components/Pages/home/TreeAscii.astro";
 import SystemComponent from "@components/Pages/home/System_capabilities/SystemComponent.astro";
+import LsProjectsComponent from "@components/Pages/home/Ls_Projects/LsProjectsComponent.astro";
 const t = useTranslations(lang as ReturnType<typeof getLangFromUrl>);
 export async function getStaticPaths() {
 	return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -33,4 +34,5 @@ export async function getStaticPaths() {
 		</div>
 	</div>
 	<SystemComponent />
+	<LsProjectsComponent />
 </Basepage>
