@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2.5 20 20"><title>email [#1573]</title><g id="Page-1" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="Dribbble-Light-Preview" fill="currentColor" transform="translate(-300 -922)"><g id="icons" transform="translate(56 160)"><path id="email-[#1573]" d="m262 764.291-8 7.027-8-7.037V764h16zM246 775v-8.055l8 7.035 8-7.027V775zm-2 2h20v-15h-20z"/></g></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <path d="M2 6l10 7 10-7"/>
+</svg>

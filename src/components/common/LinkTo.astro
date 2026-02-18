@@ -5,9 +5,10 @@ interface Props {
 	style: "primary" | "secondary";
 	cta: boolean;
 	outside?: boolean;
+	Icon?: any;
 }
 
-const { href, text, style, cta, outside } = Astro.props;
+const { href, text, style, cta, outside, Icon } = Astro.props;
 import { getLangFromUrl } from "@i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 ---
@@ -21,6 +22,17 @@ const lang = getLangFromUrl(Astro.url);
 			? "bg-black dark:bg-white text-white dark:text-black hover:bg-transparent hover:text-black dark:hover:bg-transparent dark:hover:text-white"
 			: "bg-transparent text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black")}
 >
+	{
+		Icon && (
+			<Icon
+				class={`mr-2 w-6 h-6 ${
+					style === "primary"
+						? "text-white dark:text-black group-hover:text-black dark:group-hover:text-white"
+						: "text-black dark:text-white group-hover:text-white dark:group-hover:text-black"
+				}`}
+			/>
+		)
+	}
 	{text}
 	{
 		cta && (
