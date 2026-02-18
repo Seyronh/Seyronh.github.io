@@ -1,7 +1,12 @@
 ---
+interface ItemWithIcon {
+	label: string;
+	icon: any;
+}
+
 interface Props {
 	title: string;
-	items: string[];
+	items: ItemWithIcon[];
 }
 const { title, items } = Astro.props;
 ---
@@ -13,7 +18,14 @@ const { title, items } = Astro.props;
 	<h3 class="text-xl font-bold">{title}</h3>
 	<ul class="grid grid-cols-2 gap-5 list-none list-inside text-left">
 		{
-			items.map((item) => <li class="before:content-['>'] before:mr-2">{item}</li>)
+			items.map((item, index) => (
+				<li
+					class={`before:content-['>'] before:mr-1 flex items-center gap-2 ${items.length % 2 === 1 && index === items.length - 1 ? "col-span-2 justify-center" : ""}`}
+				>
+					<item.icon class="w-6 h-6" />
+					<span>{item.label}</span>
+				</li>
+			))
 		}
 	</ul>
 </div>
