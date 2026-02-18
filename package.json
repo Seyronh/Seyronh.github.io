@@ -20,7 +20,6 @@
 		"tailwindcss": "^4.1.18"
 	},
 	"devDependencies": {
-		"@nuasite/llm-enhancements": "^0.9.3",
 		"prettier": "^3.6.2",
 		"prettier-plugin-astro": "^0.14.1"
 	}

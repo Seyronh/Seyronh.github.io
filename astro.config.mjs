@@ -5,27 +5,25 @@ import sitemap from "@astrojs/sitemap";
 
 import robotsTxt from "astro-robots-txt";
 
-import pageMarkdown from "@nuasite/llm-enhancements";
-
 import tailwindcss from "@tailwindcss/vite";
 
 import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
-    prefetch: {
-        prefetchAll: true,
-    },
+	prefetch: {
+		prefetchAll: true,
+	},
 
-    image: {
-        responsiveStyles: true,
-        layout: "full-width",
-    },
+	image: {
+		responsiveStyles: true,
+		layout: "full-width",
+	},
 
-    site: "https://seyronh.github.io",
-    integrations: [pageMarkdown(), sitemap(), robotsTxt(), compressor()],
+	site: "https://seyronh.github.io",
+	integrations: [sitemap(), robotsTxt(), compressor()],
 
-    vite: {
-        plugins: [tailwindcss()],
-    },
+	vite: {
+		plugins: [tailwindcss()],
+	},
 });
