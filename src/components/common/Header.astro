@@ -22,10 +22,10 @@ const navLinks: NavLink[] = [
 ];
 ---
 
-<header transition:name="site-header">
-	<nav class="flex items-center justify-between py-4">
-		<div class="flex items-center space-x-4">
-			<ul class="hidden md:flex space-x-6">
+<header transition:name="site-header" class="relative z-50">
+	<div class="flex items-center justify-between py-4">
+		<nav class="hidden md:flex">
+			<ul class="hidden md:flex gap-6">
 				{
 					navLinks.map((link) => {
 						const isActive =
@@ -50,12 +50,12 @@ const navLinks: NavLink[] = [
 					})
 				}
 			</ul>
-		</div>
-		<div class="flex items-center space-x-4">
+		</nav>
+		<div class="flex items-center gap-4 m-auto md:m-0">
 			<LanguagePicker currentLanguage={lang} />
 			<ThemeToggle />
 		</div>
-	</nav>
+	</div>
 	<Terminal_Url
 		text={t(
 			navLinks.find((link) =>
@@ -63,4 +63,33 @@ const navLinks: NavLink[] = [
 			)?.label || "seo.home.title"
 		)}
 	/>
+	<nav
+		class="md:hidden fixed bottom-0 left-0 w-screen z-999 border-t border-t-white"
+	>
+		<ul class="flex w-screen justify-around bg-white dark:bg-black py-2">
+			{
+				navLinks.map((link) => {
+					const isActive =
+						link.segment === "" ? url === "" : url.startsWith(link.segment);
+					return (
+						<li
+							class={
+								"hover:scale-110 transition duration-300" +
+								(isActive ? " scale-105" : "")
+							}
+						>
+							<a
+								href={`/${lang}/${link.path ? link.path + "/" : ""}`}
+								class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
+							>
+								{isActive
+									? `[ ./${t(link.label).replace(" ", "_")} ]`
+									: "./" + t(link.label).replace(" ", "_")}
+							</a>
+						</li>
+					);
+				})
+			}
+		</ul>
+	</nav>
 </header>
