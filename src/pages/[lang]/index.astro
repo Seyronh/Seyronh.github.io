@@ -3,7 +3,6 @@ import Basepage from "@layouts/Basepage.astro";
 const { lang } = Astro.params;
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import Hero from "@components/Pages/home/Photo.astro";
-import Terminal_Url from "@components/common/Terminal_Url.astro";
 import Introduction from "@components/Pages/home/Introduction.astro";
 import TreeAscii from "@components/Pages/home/TreeAscii.astro";
 import SystemComponent from "@components/Pages/home/System_capabilities/SystemComponent.astro";
@@ -29,7 +28,6 @@ export async function getStaticPaths() {
 			<Hero />
 		</div>
 		<div class="xl:col-span-1 xl:order-1">
-			<Terminal_Url text={t("seo.home.title")} />
 			<Introduction />
 		</div>
 	</div>

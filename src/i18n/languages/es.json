@@ -30,6 +30,8 @@
 	"seo.projects.description": "Explora los proyectos de Sergio Bueno Gómez, un ingeniero de software fullstack. Descubre sus contribuciones a proyectos de codigo abierto, productos digitales y mas.",
 	"seo.about.title": "Sobre mí",
 	"seo.about.description": "Conoce a Sergio Bueno Gómez, un ingeniero de software apasionado por crear soluciones fullstack. Descubre su experiencia, habilidades y trayectoria profesional en el mundo de la tecnologia.",
+	"seo.contact.title": "Contacto",
+	"seo.contact.description": "Ponte en contacto con Sergio Bueno Gómez, un ingeniero de software fullstack. Ya sea para colaboraciones, oportunidades laborales o simplemente para decir hola, Sergio está abierto a nuevas conexiones.",
 	"LsProjects.total_entries": "TOTAL_ENTRIES",
 	"LsProjects.title": "ls -R /projects",
 	"projects.view_live": "ver_en_vivo",

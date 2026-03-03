@@ -6,6 +6,7 @@ import { ui, defaultLang } from "@i18n/ui";
 const t = useTranslations(getLangFromUrl(Astro.url));
 const url = Astro.url.pathname.slice(4);
 const lang = getLangFromUrl(Astro.url);
+import Terminal_Url from "@components/common/Terminal_Url.astro";
 
 type NavLink = {
 	path: string;
@@ -17,6 +18,7 @@ const navLinks: NavLink[] = [
 	{ path: "", label: "seo.home.title", segment: "" },
 	{ path: "projects", label: "seo.projects.title", segment: "projects/" },
 	{ path: "about", label: "seo.about.title", segment: "about/" },
+	{ path: "contact", label: "seo.contact.title", segment: "contact/" },
 ];
 ---
 
@@ -54,4 +56,11 @@ const navLinks: NavLink[] = [
 			<ThemeToggle />
 		</div>
 	</nav>
+	<Terminal_Url
+		text={t(
+			navLinks.find((link) =>
+				link.segment === "" ? url === "" : url.startsWith(link.segment)
+			)?.label || "seo.home.title"
+		)}
+	/>
 </header>
