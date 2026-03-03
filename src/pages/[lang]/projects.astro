@@ -2,11 +2,7 @@
 import Basepage from "@layouts/Basepage.astro";
 const { lang } = Astro.params;
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
-import Hero from "@components/Pages/home/Photo.astro";
-import Terminal_Url from "@components/common/Terminal_Url.astro";
-import Introduction from "@components/Pages/home/Introduction.astro";
-import TreeAscii from "@components/Pages/home/TreeAscii.astro";
-import SystemComponent from "@components/Pages/home/System_capabilities/SystemComponent.astro";
+import ProjectsCards from "@components/Pages/Projects/ProjectsCards.astro";
 import ProjectsTitle from "@components/Pages/Projects/ProjectsTitle.astro";
 const t = useTranslations(lang as ReturnType<typeof getLangFromUrl>);
 export async function getStaticPaths() {
@@ -22,4 +18,5 @@ export async function getStaticPaths() {
 	}}
 >
 	<ProjectsTitle />
+	<ProjectsCards />
 </Basepage>
