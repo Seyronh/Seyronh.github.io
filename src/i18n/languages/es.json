@@ -34,8 +34,9 @@
 	"seo.contact.description": "Ponte en contacto con Sergio Bueno Gómez, un ingeniero de software fullstack. Ya sea para colaboraciones, oportunidades laborales o simplemente para decir hola, Sergio está abierto a nuevas conexiones.",
 	"LsProjects.total_entries": "TOTAL_ENTRIES",
 	"LsProjects.title": "ls -R /projects",
+	"projects.description": "Un directorio completo de implementaciones listas para producción y módulos experimentales.",
 	"projects.view_live": "ver_en_vivo",
-	"projects.credymas.title": "CREDYMÁS",
-	"projects.credymas.product_description": "Empresa de Intermediación Hipotecaria y Servicios Financieros en Málaga. Especializada en tramitación y gestión de préstamos hipotecarios. Te ayudamos a conseguir la mejor hipoteca del mercado sin complicaciones ni sorpresas, actuando como tu asesor hipotecario o bróker de confianza.",
-	"projects.credymas.tech_reasons": "Es mi primer proyecto serio donde apliqué tecnologías modernas. Elegí Astro para construir un sitio web estático altamente optimizado con excelente SEO. Los posts se sincronizan automáticamente cada noche mediante un workflow de GitHub Actions que detecta nuevos posts y dispara un build, combinando lo mejor de ambos mundos: rendimiento estático y contenido dinámico."
+	"projects.view_repository": "ver_repositorio",
+	"projects.credymás.product_description": "Empresa de Intermediación Hipotecaria y Servicios Financieros en Málaga. Especializada en tramitación y gestión de préstamos hipotecarios. Te ayudamos a conseguir la mejor hipoteca del mercado sin complicaciones ni sorpresas, actuando como tu asesor hipotecario o bróker de confianza.",
+	"projects.credymás.tech_reasons": "Es mi primer proyecto serio donde apliqué tecnologías modernas. Elegí Astro para construir un sitio web estático altamente optimizado con excelente SEO. Los posts se sincronizan automáticamente cada noche mediante un workflow de GitHub Actions que detecta nuevos posts y dispara un build, combinando lo mejor de ambos mundos: rendimiento estático y contenido dinámico."
 }

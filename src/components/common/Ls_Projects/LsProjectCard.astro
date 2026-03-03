@@ -1,0 +1,76 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+const t = useTranslations(getLangFromUrl(Astro.url));
+import EnlaceExterno from "@assets/icons/EnlaceExterno.svg";
+import Github from "@assets/icons/Github.svg";
+import { Image } from "astro:assets";
+import LsProjectCardTag from "./LsProjectCardTag.astro";
+import LinkTo from "@components/common/LinkTo.astro";
+import { ui, defaultLang } from "@i18n/ui";
+
+interface Props {
+	title: string;
+	techStack: string[];
+	liveLink?: string;
+	repositoryLink?: string;
+	imageSrc: ImageMetadata;
+}
+const { title, techStack, liveLink, repositoryLink, imageSrc } =
+	Astro.props as Props;
+
+const productDescription = ("projects." +
+	title.toLowerCase().replaceAll(" ", "-") +
+	".product_description") as keyof (typeof ui)[typeof defaultLang];
+const techReasons = ("projects." +
+	title.toLowerCase().replaceAll(" ", "-") +
+	".tech_reasons") as keyof (typeof ui)[typeof defaultLang];
+---
+
+<div
+	class="flex flex-col xl:flex-row h-auto border-2 border-black dark:border-white group"
+>
+	<figure
+		class="basis-2/5 bg-white dark:bg-black relative border-r-2 border-black dark:border-white"
+	>
+		<Image
+			src={imageSrc}
+			alt={title}
+			class="brightness-50 grayscale-75 w-full h-full object-cover group-hover:brightness-100 group-hover:grayscale-0 transition duration-300 hover:scale-110 hover:border-2 hover:border-black dark:hover:border-white hover:object-contain hover:bg-white dark:hover:bg-black"
+		/>
+	</figure>
+	<div class="basis-3/5 m-auto gap-4 flex flex-col p-5 md:px-20">
+		<h2 class="text-2xl font-pixel-square">
+			{title.toUpperCase().replaceAll(" ", "-")}
+		</h2>
+		<div
+			class="text-gray-700 dark:text-gray-300 text-base border-l-2 border-gray-700 dark:border-gray-300 pl-4 font-pixel-square hyphens-auto flex flex-col gap-3"
+		>
+			<p>{t(productDescription)}</p>
+			<p>{t(techReasons)}</p>
+		</div>
+		<div class="flex flex-row gap-2">
+			{techStack.map((tech) => <LsProjectCardTag>{tech}</LsProjectCardTag>)}
+		</div>
+		{
+			(liveLink || repositoryLink) && (
+				<div class="flex flex-row gap-3">
+					{liveLink && (
+						<LinkTo href={liveLink} outside={true} style="secondary" cta={false}>
+							<EnlaceExterno class="w-4 h-4 mr-2 m-auto" />[{t("projects.view_live")}]
+						</LinkTo>
+					)}
+					{repositoryLink && (
+						<LinkTo
+							href={repositoryLink}
+							outside={true}
+							style="secondary"
+							cta={false}
+						>
+							<Github class="w-4 h-4 mr-2 m-auto" />[{t("projects.view_repository")}]
+						</LinkTo>
+					)}
+				</div>
+			)
+		}
+	</div>
+</div>

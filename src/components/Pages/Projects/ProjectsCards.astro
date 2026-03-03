@@ -1,10 +1,15 @@
 ---
-import LsProjectCard from "../home/Ls_Projects/LsProjectCard.astro";
+import LsProjectCard from "@components/common/Ls_Projects/LsProjectCard.astro";
+
+import Credymas from "@assets/projects/Credymas.png";
 ---
 
 <div class="flex flex-col gap-6 mb-6">
-	<LsProjectCard />
-	<LsProjectCard />
-	<LsProjectCard />
-	<LsProjectCard />
+	<LsProjectCard
+		title="credymás"
+		imageSrc={Credymas}
+		liveLink="https://credymas.es/"
+		repositoryLink="test"
+		techStack={["Astro", "Html", "Css", "JavaScript"]}
+	/>
 </div>
