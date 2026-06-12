@@ -100,8 +100,8 @@ packages:
     resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
     engines: {node: '>=6.9.0'}
 
-  '@capsizecss/unpack@4.0.1':
-    resolution: {integrity: sha512-CuNiSqg7+e1cO/GjffyMOm5Tt2jUF9CWHHnvQ/UkqvtkGfHdgwEC0wpmq7fkN3gxwpRnrAN0WzO3vREKmNolMQ==}
+  '@capsizecss/unpack@4.0.0':
+    resolution: {integrity: sha512-VERIM64vtTP1C4mxQ5thVT9fK0apjPFobqybMtA1UdUujWka24ERHbRHFGmpbbhp73MhV+KSsHQH9C6uOTdEQA==}
     engines: {node: '>=18'}
 
   '@emmetio/abbreviation@2.3.3':
@@ -1000,8 +1000,8 @@ packages:
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
 
-  acorn@8.17.0:
-    resolution: {integrity: sha512-xRQbDb9BnwDafYNn6Vwl839DYVjqXYb1XVGtWAZ1kcDc6iwAL4hg3B1dZlRiuENFeO2H53gFG3in621AdERVAg==}
+  acorn@8.16.0:
+    resolution: {integrity: sha512-UVJyE9MttOsBQIDKw1skb9nAwQuR5wuGD3+82K6JgJlm/Y+KI92oNsMNGZCYdDsVtRHSak0pcV5Dno5+4jh9sw==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -1077,8 +1077,8 @@ packages:
   base-64@1.0.0:
     resolution: {integrity: sha512-kwDPIFCGx0NZHog36dj+tHiwP4QMzsZ3AgMViUBKI0+V5n4U0ufTCUMhnQ04diaRI8EX/QcPfql7zlhZ7j4zgg==}
 
-  baseline-browser-mapping@2.10.36:
-    resolution: {integrity: sha512-lVq/Df7LXlO79MVaaUHztSwWiG9oXoWHlgvNS51v8Dpd4+G4/VIy6qYePTw31nAVls33nUtnfezYeLkYAak9dg==}
+  baseline-browser-mapping@2.10.35:
+    resolution: {integrity: sha512-honAfLBde0HAFLdNyBEfuuENkF6zR+ozxqxa/2zJKHBe1qzLqyTSeRKpdPEHAP03rlDGyQOPnCSxnVpVqQo9Mg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -2553,7 +2553,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@capsizecss/unpack@4.0.1':
+  '@capsizecss/unpack@4.0.0':
     dependencies:
       fontkitten: 1.0.3
 
@@ -3167,7 +3167,7 @@ snapshots:
 
   '@vscode/l10n@0.0.18': {}
 
-  acorn@8.17.0: {}
+  acorn@8.16.0: {}
 
   ajv-draft-04@1.0.0(ajv@8.20.0):
     optionalDependencies:
@@ -3228,10 +3228,10 @@ snapshots:
       '@astrojs/internal-helpers': 0.7.6
       '@astrojs/markdown-remark': 6.3.11
       '@astrojs/telemetry': 3.3.0
-      '@capsizecss/unpack': 4.0.1
+      '@capsizecss/unpack': 4.0.0
       '@oslojs/encoding': 1.1.0
       '@rollup/pluginutils': 5.4.0(rollup@4.61.1)
-      acorn: 8.17.0
+      acorn: 8.16.0
       aria-query: 5.3.2
       axobject-query: 4.1.0
       boxen: 8.0.1
@@ -3330,7 +3330,7 @@ snapshots:
 
   base-64@1.0.0: {}
 
-  baseline-browser-mapping@2.10.36: {}
+  baseline-browser-mapping@2.10.35: {}
 
   binary-extensions@2.3.0: {}
 
@@ -4190,7 +4190,7 @@ snapshots:
     dependencies:
       '@next/env': 16.2.9
       '@swc/helpers': 0.5.15
-      baseline-browser-mapping: 2.10.36
+      baseline-browser-mapping: 2.10.35
       caniuse-lite: 1.0.30001799
       postcss: 8.4.31
       react: 19.2.7
