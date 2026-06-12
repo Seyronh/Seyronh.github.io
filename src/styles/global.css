@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Geist Sans Variable Font */
+@font-face {
+	font-family: "Geist Pixel Line";
+	src: url("/node_modules/geist/dist/fonts/geist-pixel/GeistPixel-Line.woff2")
+		format("woff2-variations");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Geist Pixel Square";
+	src: url("/node_modules/geist/dist/fonts/geist-pixel/GeistPixel-Square.woff2")
+		format("woff2-variations");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Geist Sans";
+	src: url("/node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2")
+		format("woff2-variations");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme {
+	--font-sans:
+		"Geist Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, sans-serif;
+	--font-pixel-line: "Geist Pixel Line", monospace;
+	--font-pixel-square: "Geist Pixel Square", monospace;
+	--animate-cursor-blink: blink 1s step-end infinite;
+	@keyframes blink {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+	}
+}
+body {
+	background-image: radial-gradient(
+		rgba(128, 128, 128, 0.2) 1px,
+		transparent 1px
+	);
+	background-size: 20px 20px;
+}

@@ -1,0 +1,93 @@
+---
+import LanguagePicker from "@components/common/LanguagePicker.astro";
+import ThemeToggle from "@components/common/ThemeToggle.astro";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { ui, defaultLang } from "@i18n/ui";
+const t = useTranslations(getLangFromUrl(Astro.url));
+const url = Astro.url.pathname.slice(4);
+const lang = getLangFromUrl(Astro.url);
+import Terminal_Url from "@components/common/Terminal_Url.astro";
+
+type NavLink = {
+	path: string;
+	label: keyof (typeof ui)[typeof defaultLang];
+	segment: string;
+};
+
+const navLinks: NavLink[] = [
+	{ path: "", label: "seo.home.title", segment: "" },
+	{ path: "projects", label: "seo.projects.title", segment: "projects/" },
+];
+---
+
+<header transition:name="site-header" class="relative z-50">
+	<div class="flex items-center justify-between py-4">
+		<nav class="hidden md:flex">
+			<ul class="hidden md:flex gap-6">
+				{
+					navLinks.map((link) => {
+						const isActive =
+							link.segment === "" ? url === "" : url.startsWith(link.segment);
+						return (
+							<li
+								class={
+									"hover:scale-110 transition duration-300" +
+									(isActive ? " scale-105" : "")
+								}
+							>
+								<a
+									href={`/${lang}/${link.path ? link.path + "/" : ""}`}
+									class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
+								>
+									{isActive
+										? `[ ./${t(link.label).replace(" ", "_")} ]`
+										: "./" + t(link.label).replace(" ", "_")}
+								</a>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</nav>
+		<div class="flex items-center gap-4 m-auto md:m-0">
+			<LanguagePicker currentLanguage={lang} />
+			<ThemeToggle />
+		</div>
+	</div>
+	<Terminal_Url
+		text={t(
+			navLinks.find((link) =>
+				link.segment === "" ? url === "" : url.startsWith(link.segment)
+			)?.label || "seo.home.title"
+		)}
+	/>
+	<nav
+		class="md:hidden fixed bottom-0 left-0 w-screen z-999 border-t border-t-white"
+	>
+		<ul class="flex w-screen justify-around bg-white dark:bg-black py-2">
+			{
+				navLinks.map((link) => {
+					const isActive =
+						link.segment === "" ? url === "" : url.startsWith(link.segment);
+					return (
+						<li
+							class={
+								"hover:scale-110 transition duration-300" +
+								(isActive ? " scale-105" : "")
+							}
+						>
+							<a
+								href={`/${lang}/${link.path ? link.path + "/" : ""}`}
+								class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
+							>
+								{isActive
+									? `[ ./${t(link.label).replace(" ", "_")} ]`
+									: "./" + t(link.label).replace(" ", "_")}
+							</a>
+						</li>
+					);
+				})
+			}
+		</ul>
+	</nav>
+</header>

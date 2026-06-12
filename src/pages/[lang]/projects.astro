@@ -1,0 +1,22 @@
+---
+import Basepage from "@layouts/Basepage.astro";
+const { lang } = Astro.params;
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import ProjectsCards from "@components/Pages/Projects/ProjectsCards.astro";
+import ProjectsTitle from "@components/Pages/Projects/ProjectsTitle.astro";
+const t = useTranslations(lang as ReturnType<typeof getLangFromUrl>);
+export async function getStaticPaths() {
+	return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+---
+
+<Basepage
+	seo={{
+		title: t("seo.projects.title"),
+		description: t("seo.projects.description"),
+		canonical: "https://seyronh.is-a.dev/",
+	}}
+>
+	<ProjectsTitle />
+	<ProjectsCards />
+</Basepage>

@@ -3,35 +3,21 @@ import { defineConfig } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
 
-import playformCompress from "@playform/compress";
-
 import robotsTxt from "astro-robots-txt";
 
-import min from "astro-min";
+import tailwindcss from "@tailwindcss/vite";
 
-import playformInline from "@playform/inline";
+import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
 	prefetch: {
 		prefetchAll: true,
 	},
-	image: {
-		responsiveStyles: true,
-		layout: "full-width",
+	site: "https://seyronh.is-a.dev",
+	integrations: [sitemap(), robotsTxt(), compressor()],
+
+	vite: {
+		plugins: [tailwindcss()],
 	},
-	site: "https://seyronh.github.io",
-	integrations: [
-		sitemap(),
-		robotsTxt(),
-		playformInline(),
-		min(),
-		playformCompress({
-			CSS: true,
-			HTML: false,
-			Image: true,
-			JavaScript: true,
-			SVG: true,
-		}),
-	],
 });

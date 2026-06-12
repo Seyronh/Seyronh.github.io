@@ -1,0 +1,109 @@
+---
+import { SEO as SEOComponent } from "astro-seo";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+const t = useTranslations(getLangFromUrl(Astro.url));
+
+const {
+	title = t("seo.home.title"),
+	description = t("seo.home.description"),
+	canonical = "https://seyronh.is-a.dev/",
+	ogTitle = t("seo.home.ogTitle"),
+	ogDescription = undefined,
+	autores = ["Sergio Bueno Gómez"],
+	section = "Portfolio",
+	tags = [
+		"Sergio Bueno Gómez",
+		"Seyronh",
+		"Ingeniero de Software",
+		"Desarrollo Web",
+		"JavaScript",
+		"Node.js",
+		"Astro",
+		"TypeScript",
+		"CSS",
+		"HTML",
+		"Portfolio",
+		"Desarrollador Frontend",
+		"Desarrollador Full Stack",
+		"Málaga",
+		"España",
+		"Software Engineer",
+		"Web Developer",
+	],
+	isArticle = false,
+	noindex = false,
+	nofollow = false,
+	titleDefault = "Sergio Bueno Gómez - Portfolio",
+	siteName = "Sergio Bueno Gómez - Portfolio",
+	ogImage = "/avatar.webp",
+	ogImageAlt = t("seo.home.ogImageAlt"),
+	twitterSite = "@Seyronh",
+	twitterCreator = "@Seyronh",
+	twitterCard = "summary_large_image",
+	twitterTitle = undefined,
+	twitterDescription = undefined,
+	twitterImage = undefined,
+	twitterImageAlt = undefined,
+	languageAlternates = [],
+} = Astro.props;
+
+const absOgImage =
+	typeof ogImage === "string" && ogImage.startsWith("http")
+		? ogImage
+		: new URL(ogImage, canonical).toString();
+
+const ogType = isArticle ? "article" : "website";
+
+// Si no se proporciona ogDescription, usar la descripción estándar
+const ogDescriptionFinal = ogDescription ?? description;
+
+const twitter = {
+	card: twitterCard,
+	site: twitterSite,
+	creator: twitterCreator,
+	title: twitterTitle ?? ogTitle ?? title,
+	description: twitterDescription ?? ogDescriptionFinal,
+	image: twitterImage ?? absOgImage,
+	imageAlt: twitterImageAlt ?? ogImageAlt,
+};
+---
+
+<SEOComponent
+	title={title}
+	titleTemplate="%s | Sergio Bueno Gómez"
+	titleDefault={titleDefault}
+	description={description}
+	canonical={canonical}
+	noindex={noindex}
+	nofollow={nofollow}
+	charset="utf-8"
+	languageAlternates={languageAlternates}
+	openGraph={{
+		basic: {
+			title: ogTitle,
+			type: ogType,
+			image: absOgImage,
+			url: canonical,
+		},
+		optional: {
+			description: ogDescriptionFinal,
+			locale: "es_ES",
+			siteName: siteName,
+		},
+		...(isArticle
+			? {
+					article: {
+						publishedTime: new Date().toISOString(),
+						modifiedTime: new Date().toISOString(),
+						authors: autores,
+						section: section,
+						tags: tags,
+					},
+				}
+			: {}),
+		image: {
+			alt: ogImageAlt,
+		},
+	}}
+	twitter={twitter}
+/>

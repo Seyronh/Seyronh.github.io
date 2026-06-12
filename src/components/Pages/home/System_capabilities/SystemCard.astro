@@ -1,0 +1,31 @@
+---
+interface ItemWithIcon {
+	label: string;
+	icon: any;
+}
+
+interface Props {
+	title: string;
+	items: ItemWithIcon[];
+}
+const { title, items } = Astro.props;
+---
+
+<div
+	class="flex flex-col items-center gap-4 border-2 border-black dark:border-white p-4 shadow-[4px_4px_0px_0px_rgba(200,200,200,1)] transition duration-300 hover:scale-95 hover:shadow-none hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
+>
+	<slot name="icon" />
+	<h3 class="text-xl font-bold">{title}</h3>
+	<ul class="grid grid-cols-2 gap-5 list-none list-inside text-left">
+		{
+			items.map((item, index) => (
+				<li
+					class={`before:content-['>'] before:mr-1 flex items-center gap-2 ${items.length % 2 === 1 && index === items.length - 1 ? "col-span-2 justify-center" : ""}`}
+				>
+					<item.icon class="w-6 h-6" />
+					<span>{item.label}</span>
+				</li>
+			))
+		}
+	</ul>
+</div>

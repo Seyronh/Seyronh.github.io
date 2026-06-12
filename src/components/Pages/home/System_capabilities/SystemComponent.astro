@@ -1,0 +1,62 @@
+---
+import SystemCard from "./SystemCard.astro";
+import Cpu from "@assets/icons/Capabilities/Cpu.svg";
+import Server from "@assets/icons/Capabilities/Server.svg";
+import Cloud from "@assets/icons/Capabilities/Cloud.svg";
+import React from "@assets/icons/Capabilities/React.svg";
+import Tailwind from "@assets/icons/Capabilities/Tailwind.svg";
+import TypeScript from "@assets/icons/Capabilities/Typescript.svg";
+import AstroIcon from "@assets/icons/Capabilities/AstroIcon.svg";
+import Nodejs from "@assets/icons/Capabilities/Nodejs.svg";
+import Express from "@assets/icons/Capabilities/Express.svg";
+import Python from "@assets/icons/Capabilities/Python.svg";
+import PostgreSQL from "@assets/icons/Capabilities/Postgresql.svg";
+import MongoDB from "@assets/icons/Capabilities/Mongodb.svg";
+import Docker from "@assets/icons/Capabilities/Docker.svg";
+import Cicd from "@assets/icons/Capabilities/Cicd.svg";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section class="mb-10">
+	<h2 class="text-2xl text-black dark:text-white font-pixel-square mb-5">
+		<strong class="bg-black text-white dark:bg-white dark:text-black pl-1 pr-1"
+			>></strong
+		>
+		{t("system_capabilities")}
+	</h2>
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+		<SystemCard
+			title="FRONTEND CORE"
+			items={[
+				{ label: "React", icon: React },
+				{ label: "Tailwind", icon: Tailwind },
+				{ label: "TypeScript", icon: TypeScript },
+				{ label: "Astro", icon: AstroIcon },
+			]}
+		>
+			<Cpu class="w-16 h-16" slot="icon" />
+		</SystemCard>
+		<SystemCard
+			title="BACKEND ARCH"
+			items={[
+				{ label: "Node.js", icon: Nodejs },
+				{ label: "Express", icon: Express },
+				{ label: "Python", icon: Python },
+				{ label: "PostgreSQL", icon: PostgreSQL },
+				{ label: "MongoDB", icon: MongoDB },
+			]}
+		>
+			<Server class="w-16 h-16" slot="icon" />
+		</SystemCard>
+		<SystemCard
+			title="DEVOPS & CLOUD"
+			items={[
+				{ label: "Docker", icon: Docker },
+				{ label: "CI/CD", icon: Cicd },
+			]}
+		>
+			<Cloud class="w-16 h-16" slot="icon" />
+		</SystemCard>
+	</div>
+</section>
