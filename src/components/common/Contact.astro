@@ -59,10 +59,28 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 		</div>
 	</div>
 	<form
+		id="contactForm"
 		class="flex flex-col gap-4 w-11/12"
 		action="https://formsubmit.co/buenogomezsergio@gmail.com"
 		method="POST"
 	>
+		<input
+			type="hidden"
+			name="_subject"
+			value="Rellenado formulario de contacto en el portfolio"
+		/>
+		<label for="_gotcha" style="display:none">Deja este campo vacío</label>
+		<input
+			type="text"
+			name="_gotcha"
+			style="display:none"
+			tabindex="-1"
+			autocomplete="off"
+		/>
+		<input type="hidden" name="_template" value="table" />
+		<input type="hidden" name="_captcha" value="false" />
+		<input type="hidden" name="_next" value="#" />
+		<input type="text" name="_honey" style="display:none" />
 		<label
 			for="user"
 			class="bg-black text-white dark:bg-white dark:text-black p-1 w-fit font-pixel-square"
@@ -104,16 +122,21 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 			class="cursor-pointer bg-black text-white dark:bg-white dark:text-black hover:text-black hover:bg-transparent dark:hover:text-white dark:hover:bg-transparent border-2 border-black dark:border-white p-2 font-pixel-square transition duration-300 hover:scale-95 shadow-[4px_4px_0px_0px_rgba(200,200,200,1)] hover:shadow-none w-full"
 			>{t("contact.form.submit")} <PaperPlane class="w-4 h-4 inline-block" />
 		</button>
+		<p id="submissionMessage" class="text-sm font-medium min-h-6"></p>
 	</form>
 </section>
-<script>
+<script
+	define:vars={{
+		submittingText: t("contact.form.submitting"),
+		successText: t("contact.form.success"),
+		errorText: t("contact.form.error"),
+	}}
+>
 	function replaceEmail() {
 		const usuario = "buenogomezsergio";
 		const dominio = "gmail.com";
 
-		const enlace = document.getElementById(
-			"correo_contacto"
-		) as HTMLAnchorElement;
+		const enlace = document.getElementById("correo_contacto");
 		if (enlace) {
 			enlace.innerHTML = usuario + "@" + dominio;
 			enlace.href = "mailto:" + usuario + "@" + dominio;
@@ -121,4 +144,56 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 	}
 	replaceEmail();
 	document.addEventListener("astro:after-swap", replaceEmail);
+
+	function setupContactForm() {
+		const messageElement = document.getElementById("submissionMessage");
+		const formElement = document.getElementById("contactForm");
+
+		if (!(messageElement && formElement instanceof HTMLFormElement)) return;
+
+		formElement.addEventListener("submit", async (event) => {
+			event.preventDefault();
+
+			if (!formElement.checkValidity()) return;
+
+			const submitButton = formElement.querySelector('button[type="submit"]');
+			const originalButtonHTML =
+				submitButton instanceof HTMLButtonElement ? submitButton.innerHTML : "";
+
+			if (submitButton instanceof HTMLButtonElement) {
+				submitButton.disabled = true;
+				submitButton.textContent = submittingText;
+			}
+
+			try {
+				const formData = new FormData(formElement);
+				const response = await fetch(formElement.action, {
+					method: "POST",
+					body: formData,
+					headers: { Accept: "application/json" },
+				});
+
+				if (response.ok) {
+					messageElement.textContent = successText;
+					messageElement.classList.remove("text-red-600");
+					messageElement.classList.add("text-green-600");
+					formElement.reset();
+				} else {
+					throw new Error("Error en el envío");
+				}
+			} catch {
+				messageElement.textContent = errorText;
+				messageElement.classList.remove("text-green-600");
+				messageElement.classList.add("text-red-600");
+			} finally {
+				if (submitButton instanceof HTMLButtonElement) {
+					submitButton.disabled = false;
+					submitButton.innerHTML = originalButtonHTML;
+				}
+			}
+		});
+	}
+
+	setupContactForm();
+	document.addEventListener("astro:after-swap", setupContactForm);
 </script>
