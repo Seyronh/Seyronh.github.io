@@ -14,7 +14,7 @@ export default defineConfig({
 	prefetch: {
 		prefetchAll: true,
 	},
-	site: "https://seyronh.is-a.dev",
+	site: "https://seyron.is-a.dev",
 	integrations: [sitemap(), robotsTxt(), compressor()],
 
 	vite: {
