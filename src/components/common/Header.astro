@@ -15,7 +15,7 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-	{ path: "", label: "seo.home.title", segment: "" },
+	{ path: "", label: "home.title", segment: "" },
 	{ path: "projects", label: "seo.projects.title", segment: "projects/" },
 ];
 ---
@@ -36,7 +36,7 @@ const navLinks: NavLink[] = [
 								}
 							>
 								<a
-									href={`/${lang}/${link.path ? link.path + "/" : ""}`}
+									href={`${lang == defaultLang ? "" : `/${lang}`}/${link.path ? link.path + "/" : ""}`}
 									class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
 								>
 									{isActive

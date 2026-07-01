@@ -19,6 +19,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 </button>
 
 <script>
+	import { defaultLang } from "@i18n/ui";
 	import { navigate } from "astro:transitions/client";
 
 	let isNavigating = false;
@@ -79,13 +80,15 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 
 			const current = newToggle.getAttribute("data-current") || "en";
 			const selectedLang = current === "es" ? "en" : "es";
+			localStorage.setItem("preferred-lang", selectedLang);
 			const path = window.location.pathname;
 			let newPath = path;
 
 			if (path.startsWith("/es/")) {
-				newPath = path.replace("/es/", "/" + selectedLang + "/");
-			} else if (path.startsWith("/en/")) {
-				newPath = path.replace("/en/", "/" + selectedLang + "/");
+				newPath = path.replace(
+					"/es/",
+					selectedLang === defaultLang ? "/" : `/${selectedLang}/`
+				);
 			} else {
 				newPath = "/" + selectedLang + path;
 			}

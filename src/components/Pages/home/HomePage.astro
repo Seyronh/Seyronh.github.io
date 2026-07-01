@@ -1,0 +1,35 @@
+---
+import Basepage from "@layouts/Basepage.astro";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import Hero from "@components/Pages/home/Photo.astro";
+import Introduction from "@components/Pages/home/Introduction.astro";
+import TreeAscii from "@components/Pages/home/TreeAscii.astro";
+import SystemComponent from "@components/Pages/home/System_capabilities/SystemComponent.astro";
+import LsProjectsSection from "@components/Pages/home/LsProjectsSection.astro";
+import { defaultLang } from "@i18n/ui";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang as ReturnType<typeof getLangFromUrl>);
+---
+
+<Basepage
+	seo={{
+		title: t("seo.home.title"),
+		description: t("seo.home.description"),
+		canonical: `https://seyron.is-a.dev/${lang === defaultLang ? "" : lang + "/"}`,
+	}}
+>
+	<div class="grid grid-cols-1 xl:grid-cols-3 gap-4 items-center mb-10">
+		<div class="hidden xl:flex xl:col-span-1 xl:order-3">
+			<TreeAscii />
+		</div>
+		<div class="xl:col-span-1 xl:order-2">
+			<Hero lang={lang} />
+		</div>
+		<div class="xl:col-span-1 xl:order-1">
+			<Introduction lang={lang} />
+		</div>
+	</div>
+	<SystemComponent lang={lang} />
+	<LsProjectsSection lang={lang} />
+</Basepage>

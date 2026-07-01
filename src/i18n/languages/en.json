@@ -1,8 +1,9 @@
 {
-	"seo.home.title": "Home",
+	"seo.home.title": "Fullstack Software Engineer",
 	"seo.home.description": "Portfolio of Sergio Bueno Gómez - Software Engineer in Malaga, Spain. Explore my projects, skills and fullstack experience with JavaScript, Node.js, Astro and more.",
 	"seo.home.ogTitle": "Sergio Bueno Gómez - Software Engineer | Portfolio",
 	"seo.home.ogImageAlt": "Sergio Bueno Gómez Logo - Software Engineer",
+	"home.title": "Home",
 	"hero.imageAlt": "Sergio Bueno Gómez Avatar",
 	"hero.title": "Hi, I'm ",
 	"hero.subtitle": "Software Engineer & Tech Enthusiast",

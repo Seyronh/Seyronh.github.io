@@ -1,36 +1,13 @@
 ---
-import Basepage from "@layouts/Basepage.astro";
+import HomePage from "@components/Pages/home/HomePage.astro";
+
 const { lang } = Astro.params;
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
-import Hero from "@components/Pages/home/Photo.astro";
-import Introduction from "@components/Pages/home/Introduction.astro";
-import TreeAscii from "@components/Pages/home/TreeAscii.astro";
-import SystemComponent from "@components/Pages/home/System_capabilities/SystemComponent.astro";
-import LsProjectsSection from "@components/Pages/home/LsProjectsSection.astro";
-const t = useTranslations(lang as ReturnType<typeof getLangFromUrl>);
+import { supportedLangs, defaultLang } from "@i18n/ui";
 export async function getStaticPaths() {
-	return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+	return supportedLangs
+		.filter((lang) => lang != defaultLang)
+		.map((lang) => ({ params: { lang } }));
 }
 ---
 
-<Basepage
-	seo={{
-		title: t("seo.home.title"),
-		description: t("seo.home.description"),
-		canonical: "https://seyron.is-a.dev/",
-	}}
->
-	<div class="grid grid-cols-1 xl:grid-cols-3 gap-4 items-center mb-10">
-		<div class="hidden xl:flex xl:col-span-1 xl:order-3">
-			<TreeAscii />
-		</div>
-		<div class="xl:col-span-1 xl:order-2">
-			<Hero />
-		</div>
-		<div class="xl:col-span-1 xl:order-1">
-			<Introduction />
-		</div>
-	</div>
-	<SystemComponent />
-	<LsProjectsSection />
-</Basepage>
+<HomePage lang={lang} />
