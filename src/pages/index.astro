@@ -11,12 +11,9 @@ const t = useTranslations("es");
 		canonical: "https://seyron.is-a.dev/",
 	}}
 >
-	<meta http-equiv="refresh" content="0;url=/es/" />
-	<script>
-		const lang = navigator.language.split("-")[0];
-		if (lang === "en") {
-			window.location.href = "/en/";
-		} else {
+	<script is:inline>
+		const preferredLang = localStorage.getItem("preferred-lang");
+		if (preferredLang === "es") {
 			window.location.href = "/es/";
 		}
 	</script>

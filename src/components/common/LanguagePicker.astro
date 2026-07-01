@@ -79,6 +79,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 
 			const current = newToggle.getAttribute("data-current") || "en";
 			const selectedLang = current === "es" ? "en" : "es";
+			localStorage.setItem("preferred-lang", selectedLang);
 			const path = window.location.pathname;
 			let newPath = path;
 
