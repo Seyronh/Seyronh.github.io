@@ -13,6 +13,20 @@ const t = useTranslations(lang);
 		title: t("seo.projects.title"),
 		description: t("seo.projects.description"),
 		canonical: `https://seyron.is-a.dev/${lang === defaultLang ? "" : lang + "/"}projects/`,
+		languageAlternates: [
+			{
+				hrefLang: "x-default",
+				href: `https://seyron.is-a.dev/projects`,
+			},
+			{
+				hrefLang: "en",
+				href: `https://seyron.is-a.dev/projects`,
+			},
+			{
+				hrefLang: "es",
+				href: `https://seyron.is-a.dev/es/projects`,
+			},
+		],
 	}}
 >
 	<ProjectsTitle />
