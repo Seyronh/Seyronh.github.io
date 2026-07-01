@@ -1,0 +1,20 @@
+---
+import Basepage from "@layouts/Basepage.astro";
+const { lang } = Astro.props;
+import { useTranslations } from "@i18n/utils";
+import ProjectsCards from "@components/Pages/Projects/ProjectsCards.astro";
+import ProjectsTitle from "@components/Pages/Projects/ProjectsTitle.astro";
+import { defaultLang } from "@i18n/ui";
+const t = useTranslations(lang);
+---
+
+<Basepage
+	seo={{
+		title: t("seo.projects.title"),
+		description: t("seo.projects.description"),
+		canonical: `https://seyron.is-a.dev/${lang === defaultLang ? "" : lang + "/"}projects/`,
+	}}
+>
+	<ProjectsTitle />
+	<ProjectsCards />
+</Basepage>

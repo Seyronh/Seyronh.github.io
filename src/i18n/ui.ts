@@ -5,8 +5,10 @@ export const languages = {
 	en: "English",
 	es: "Español",
 };
-export const defaultLang = "es";
-
+export const defaultLang = "en";
+export const supportedLangs = Object.keys(
+	languages
+) as (keyof typeof languages)[];
 export const ui = {
 	en,
 	es,
