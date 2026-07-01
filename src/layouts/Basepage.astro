@@ -12,6 +12,25 @@ const lang = getLangFromUrl(Astro.url);
 
 <html lang={lang} class="scroll-smooth">
 	<head>
+		<SEO
+			title={seo.title}
+			description={seo.description}
+			canonical={seo.canonical}
+			ogTitle={seo.ogTitle}
+			isArticle={seo.isArticle}
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta name="theme-color" content="#000000" />
+		<meta
+			name="google-site-verification"
+			content="1Ri8F5miwvG8a8toBairzdToG4A60vHdt2KTFjXyp9g"
+		/>
+		<meta name="msvalidate.01" content="5AEF6BCE4CEF6158CB1ED3ADB128FD0D" />
 		<script is:inline>
 			function restoreTheme() {
 				const isDark =
@@ -33,22 +52,6 @@ const lang = getLangFromUrl(Astro.url);
 				}
 			});
 		</script>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta name="theme-color" content="#000000" />
-		<meta name="google-site-verification" content="1Ri8F5miwvG8a8toBairzdToG4A60vHdt2KTFjXyp9g" />
-		<meta name="msvalidate.01" content="5AEF6BCE4CEF6158CB1ED3ADB128FD0D" />
-		<SEO
-			title={seo.title}
-			description={seo.description}
-			canonical={seo.canonical}
-			ogTitle={seo.ogTitle}
-			isArticle={seo.isArticle}
-		/>
 		<ClientRouter />
 	</head>
 	<body
