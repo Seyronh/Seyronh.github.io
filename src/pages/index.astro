@@ -4,9 +4,12 @@ import { defaultLang } from "@i18n/ui";
 ---
 
 <HomePage lang={defaultLang} />
-<script is:inline>
-	const preferredLang = localStorage.getItem("preferred-lang");
-	if (preferredLang !== defaultLang) {
+<script is:inline define:vars={{ defaultLang }}>
+	const preferredLang =
+		localStorage.getItem("preferred-lang") ||
+		navigator.language.split("-")[0] ||
+		defaultLang;
+	if (defaultLang !== preferredLang) {
 		window.location.href = `/${preferredLang}/`;
 	}
 </script>
