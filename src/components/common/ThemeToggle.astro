@@ -20,7 +20,11 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 
 		if (!toggle || !themeStatus) return;
 
-		const currentTheme = localStorage.getItem("theme") || "light";
+		const currentTheme =
+			localStorage.getItem("theme") ||
+			document.documentElement.classList.contains("dark")
+				? "dark"
+				: "light";
 		const labelDark = toggle.getAttribute("data-label-dark") || "Oscuro";
 		const labelLight = toggle.getAttribute("data-label-light") || "Claro";
 
