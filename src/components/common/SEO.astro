@@ -66,6 +66,13 @@ const twitter = {
 	image: twitterImage ?? absOgImage,
 	imageAlt: twitterImageAlt ?? ogImageAlt,
 };
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": isArticle ? "Article" : "WebPage",
+	name: siteName,
+	url: canonical,
+};
 ---
 
 <SEOComponent
@@ -107,3 +114,4 @@ const twitter = {
 	}}
 	twitter={twitter}
 />
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
